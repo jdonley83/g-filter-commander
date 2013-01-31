@@ -17,4 +17,11 @@
 		result = cmd.process("a|@b");
 		equal(result[1], "b");
 	});
+
+	test("alphabetize items test", function(){
+		result = cmd.process("b|c|a");
+		equal(result[0], "a");
+		equal(result[1], "b");
+		equal(result[2], "c");
+	});
 })();

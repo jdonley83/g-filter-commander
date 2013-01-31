@@ -8,14 +8,14 @@ com.jdonley83.g_filter_commander = (function(){
 
 		for (var i = 0; i < length; i++) {
 			var current_item = filter_arr[i];
-			if (current_item.indexOf("@") == 0) {
+			if (current_item.indexOf("@") === 0) {
 				output_arr[i] = current_item.substring(1);
 			} else {
 				output_arr[i] = current_item;
 			}
 		}
 
-		return output_arr;
+		return output_arr.sort();
 	}
 
 	return {
