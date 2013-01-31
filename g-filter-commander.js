@@ -5,16 +5,16 @@ com.jdonley83.g_filter_commander = (function(){
 
 	function removeItem(item) {
 		var length = _items.length,
-			toPop = [], i;
-		for (i = 0; i < length; i++) {
+			toSplice = -1;
+		for (var i = 0; i < length; i++) {
 			if (_items[i] == item){
-				toPop.push(i);
+				toSplice = i;
+				break;
 			}
 		}
 
-		length = toPop.length;
-		for (i = 0; i < length; i++){
-			_items.splice(i, 1);
+		if (toSplice >= 0){
+			_items.splice(toSplice, 1);
 		}
 	}
 
