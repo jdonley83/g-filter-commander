@@ -1,13 +1,14 @@
 com = {};
 com.jdonley83 = {};
 com.jdonley83.g_filter_commander = (function(){
-	function sanitize_data(input) {
-		var filter_arr = input.split("|"),
-			output_arr = [],
-			length = filter_arr.length;
+	var _items;
+
+	function sanitize_data() {
+		var output_arr = [],
+			length = _items.length;
 
 		for (var i = 0; i < length; i++) {
-			var current_item = filter_arr[i];
+			var current_item = _items[i];
 			if (current_item.indexOf("@") === 0) {
 				output_arr[i] = current_item.substring(1);
 			} else {
@@ -19,8 +20,14 @@ com.jdonley83.g_filter_commander = (function(){
 	}
 
 	return {
-		process: function(input){
-			return sanitize_data(input);
+		init: function(input){
+			_items = input.split("|");
+		},
+		addItem: function(input){
+			_items.push(input);
+		},
+		process: function(){
+			return sanitize_data();
 		}
 	};
 })();

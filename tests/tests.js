@@ -8,20 +8,32 @@
 	var cmd = com.jdonley83.g_filter_commander;
 
 	test("simple split test", function(){
-		result = cmd.process("a|b");
+		cmd.init("a|b");
+		result = cmd.process();
 		equal(result[0], "a");
 		equal(result[1], "b");
 	});
 
 	test("remove @ symbol from input", function(){
-		result = cmd.process("a|@b");
+		cmd.init("a|@b");
+		result = cmd.process();
 		equal(result[1], "b");
 	});
 
 	test("alphabetize items test", function(){
-		result = cmd.process("b|c|a");
+		cmd.init("b|c|a");
+		result = cmd.process();
 		equal(result[0], "a");
 		equal(result[1], "b");
 		equal(result[2], "c");
 	});
+
+	test("add item test", function(){
+		cmd.init("a|c");
+		cmd.addItem("b");
+		result = cmd.process();
+		equal(result[0], "a");
+		equal(result[1], "b");
+		equal(result[2], "c");
+	})
 })();
