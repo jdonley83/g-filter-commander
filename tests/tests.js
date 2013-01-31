@@ -35,5 +35,12 @@
 		equal(result[0], "a");
 		equal(result[1], "b");
 		equal(result[2], "c");
-	})
+	});
+
+	test("remove item test", function(){
+		cmd.init("a|b|c");
+		cmd.removeItem("b");
+		result = cmd.process();
+		equal(result[1], "c");
+	});
 })();

@@ -3,7 +3,23 @@ com.jdonley83 = {};
 com.jdonley83.g_filter_commander = (function(){
 	var _items;
 
-	function sanitize_data() {
+	function removeItem(item) {
+		var length = _items.length,
+			toPop = [], i;
+		for (i = 0; i < length; i++) {
+			if (_items[i] == item){
+				toPop.push(i);
+			}
+		}
+
+		length = toPop.length;
+		var modifier = 0;
+		for (i = 0; i < length; i++){
+			_items.splice(i, 1);
+		}
+	}
+
+	function sanitizeData() {
 		var output_arr = [],
 			length = _items.length;
 
@@ -27,7 +43,10 @@ com.jdonley83.g_filter_commander = (function(){
 			_items.push(input);
 		},
 		process: function(){
-			return sanitize_data();
+			return sanitizeData();
+		},
+		removeItem: function(input){
+			removeItem(input);
 		}
 	};
 })();
