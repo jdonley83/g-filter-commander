@@ -43,4 +43,12 @@
 		result = cmd.process();
 		equal(result[1], "c");
 	});
+
+	test("remove multiple items test", function(){
+		cmd.init("a|b|c|d");
+		cmd.removeItem("b");
+		cmd.removeItem("c");
+		result = cmd.process();
+		equal(result[1], "d");
+	});
 })();

@@ -13,7 +13,6 @@ com.jdonley83.g_filter_commander = (function(){
 		}
 
 		length = toPop.length;
-		var modifier = 0;
 		for (i = 0; i < length; i++){
 			_items.splice(i, 1);
 		}
