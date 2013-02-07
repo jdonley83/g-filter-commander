@@ -51,4 +51,18 @@
 		result = cmd.process();
 		equal(result[1], "d");
 	});
+
+	test("do not allow multiple copies of items", function(){
+		cmd.init("a|b|b|c");
+		result = cmd.process();
+		equal(result.length, 3);
+		equal(result[2], "c");
+	});
+
+	test("do not allow multiple copies of items even when more than 2 copies exist", function(){
+		cmd.init("a|b|b|b|c");
+		result = cmd.process();
+		equal(result.length, 3);
+		equal(result[2], "c");
+	});
 })();
