@@ -9,20 +9,25 @@
 
 		template = Handlebars.compile(source);
 
+		function regenList(inputArr) {
+			var context = {filters: inputArr};
+			var html = template(context);
+
+			$(filter_list_div).html('');
+			$(filter_list_div).append(html);
+
+			$('a.remove-filter').click(function(){
+				commander.removeItem($(this).data("filter"));
+				regenList(commander.process());
+			});
+		}
+
 		$(initBtn).click(function(){
 			var input = $(inputField).val();
 
 			commander.init(input);
 
-			var context = {filters: commander.process()};
-			var html = template(context);
-
-			$(filter_list_div).append(html);
-
-			$('a.remove-filter').click(function(){
-				commander.remove($(this).data("filter"));
-				//TODO: call to code that will regen list
-			});
+			regenList(commander.process());
 		});
 	});
 })($);
