@@ -59,6 +59,10 @@ com.jdonley83.g_filter_commander = (function(){
         addItem: function(input) {
             _items.push(input);
         },
+        finalize: function() {
+            _items = _items.sort();
+            return sanitizeData().join('|');
+        },
         process: function() {
             _items = _items.sort();
             return sanitizeData();

@@ -65,4 +65,10 @@
 		equal(result.length, 3);
 		equal(result[2], "c");
 	});
+
+	test("check for valid final output", function(){
+		cmd.init("a|b|b|c");
+		result = cmd.finalize();
+		equal(result, "a|b|c");
+	});
 })();

@@ -4,8 +4,25 @@
 	<title>g-filter-commander</title>
 </head>
 <body>
-	<div id="start"></div>
+	<div>
+		<textarea name="input" id="input" cols="30" rows="10"></textarea>
+		<input type="submit" id="init">
+	</div>
+
+	<div id="filter-list">
+
+	</div>
+
+	<script id="filter-list-template" type="text/x-handlebars-template">
+		<ul class="filter-items">
+		  {{#each filters}}
+		  <li>{{this}} <a href="#" data-filter="{{this}}" class="remove-filter">x</a></li>
+		  {{/each}}
+		</ul>
+	</script>
+
 	<script src="libs/jquery.min.js" type="text/javascript"></script>
+	<script src="libs/handlebars.js" type="text/javascript"></script>
 	<script src="g-filter-commander.js"></script>
 	<script src="script.js"></script>
 </body>
