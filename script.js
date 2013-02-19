@@ -5,7 +5,9 @@
 			initBtn = $('#init'),
 			source = $('#filter-list-template').html(),
 			template,
-			filter_list_div = $('#filter-list');
+			filter_list_div = $('#filter-list'),
+			finalizeBtn = $('#finalize'),
+			outputText = $('#output');
 
 		template = Handlebars.compile(source);
 
@@ -28,6 +30,10 @@
 			commander.init(input);
 
 			regenList(commander.process());
+		});
+
+		$(finalizeBtn).click(function(){
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", commander.finalize());
 		});
 	});
 })($);
