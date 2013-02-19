@@ -7,7 +7,9 @@
 			template,
 			filter_list_div = $('#filter-list'),
 			finalizeBtn = $('#finalize'),
-			outputText = $('#output');
+			outputText = $('#output'),
+			filter_input = $('#filter-input'),
+			add_filterBtn = $('#add-filter');
 
 		template = Handlebars.compile(source);
 
@@ -30,6 +32,15 @@
 			commander.init(input);
 
 			regenList(commander.process());
+		});
+
+		$(add_filterBtn).click(function(){
+			if ($(filter_input).val()) {
+				commander.addItem($(filter_input).val());
+				regenList(commander.process());
+
+				$(filter_input).val('');
+			}
 		});
 
 		$(finalizeBtn).click(function(){
