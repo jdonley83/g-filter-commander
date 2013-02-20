@@ -38,9 +38,9 @@ com.jdonley83.g_filter_commander = (function(){
                 }
 
                 if (current_item.indexOf("@") === 0) {
-                    output_arr[i - arrModifier] = current_item.substring(1);
+                    output_arr[i - arrModifier] = current_item.substring(1).toLowerCase();
                 } else {
-                    output_arr[i - arrModifier] = current_item;
+                    output_arr[i - arrModifier] = current_item.toLowerCase();
                 }
 
                 if (skip) {

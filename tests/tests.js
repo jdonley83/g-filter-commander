@@ -71,4 +71,11 @@
 		result = cmd.finalize();
 		equal(result, "a|b|c");
 	});
+
+	test("result is lower case", function(){
+		cmd.init("A|B");
+		result = cmd.process();
+		equal(result[0], "a");
+		equal(result[1], "b");
+	});
 })();
