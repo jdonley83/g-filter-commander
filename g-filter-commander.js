@@ -1,5 +1,5 @@
-com = {};
-com.jdonley83 = {};
+var com = com || {};
+com.jdonley83 = com.jdonley83 || {};
 com.jdonley83.g_filter_commander = (function(){
     var _items;
 
